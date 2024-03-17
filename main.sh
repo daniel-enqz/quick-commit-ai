@@ -4,7 +4,7 @@ SCRIPT_DIR="$(dirname "$0")"
 
 function quick_commit_ai {
   source "${SCRIPT_DIR}/commit_message.sh"
-  source "${SCRIPT_DIR}/squash_message.sh"
+  source "${SCRIPT_DIR}/branch_summary_message.sh"
 
   if [[ "$1" == "--commit" ]]; then
     local diff_data=$(git diff)
@@ -15,7 +15,7 @@ function quick_commit_ai {
     local commit_message=$(generate_commit_message "$diff_data")
     commit_changes "$commit_message"
     echo "Changes committed. ✅"
-  elif [[ "$1" == "--squash" ]]; then
+  elif [[ "$1" == "--summary" ]]; then
     local remote=origin
     local default_branch=$(git remote show $remote | grep 'HEAD branch' | cut -d' ' -f5)
     if [ -z "$default_branch" ]; then
@@ -38,7 +38,7 @@ function quick_commit_ai {
     echo "$summary_message" | pbcopy
     echo "Summary message copied to clipboard. ✅"
   else
-    echo "Invalid option. Use --commit for individual commits or --squash for a summary of all commits."
+    echo "Invalid option. Use --commit for individual commits or --summary for a summary of all commits."
   fi
 }
 

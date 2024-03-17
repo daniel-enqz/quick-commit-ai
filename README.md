@@ -30,5 +30,5 @@ quick-commit-ai --commit
 > Useful when you need a message for a pull request or squash commits.
 
 ```bash
-quick-commit-ai --squash
+quick-commit-ai --summary
 ```
