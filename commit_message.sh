@@ -28,7 +28,7 @@
   # Function to prompt and execute git commit
   commit_changes() {
     echo "Ready to commit with the following message:"
-    echo "git commit -m \"$1\""
+    printf "\033[0;36mgit commit -m \"$1\"\033[0m\n"
     echo "Press Enter to proceed or Ctrl+C to abort."
     read
     git add .

@@ -29,7 +29,8 @@ function quick_commit_ai {
     fi
 
     local summary_message=$(generate_summary_message "$commit_messages")
-    printf "$summary_message\n"
+    printf "\033[0;36m$summary_message\n033[0m\n"
+
 
     echo "Press Enter to copy the summary message to the clipboard or Ctrl+C to cancel."
     read -r
