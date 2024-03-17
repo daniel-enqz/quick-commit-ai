@@ -20,13 +20,13 @@ sh setup.sh
 
 ### Features:
 
-#### ✨ Generate commit messages based on your changes:
+#### ✨ Generate AI commit messages based on your changes:
 
 ```bash
 quick-commit-ai --commit
 ```
 
-#### ✨ In your current branch summarize all commits:
+#### ✨ Generate a summary from all the work you've made on your branch:
 > Useful when you need a message for a pull request or squash commits.
 
 ```bash
