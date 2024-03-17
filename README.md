@@ -18,15 +18,15 @@ cd quick-commit-ai
 sh setup.sh
 ```
 
-### Usage:
+### Features:
 
-#### Generate commit messages based on your changes:
+#### ✨ Generate commit messages based on your changes:
 
 ```bash
 quick-commit-ai --commit
 ```
 
-#### In your current branch summarize all commits:
+#### ✨ In your current branch summarize all commits:
 > Useful when you need a message for a pull request or squash commits.
 
 ```bash
