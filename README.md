@@ -32,3 +32,11 @@ quick-commit-ai --commit
 ```bash
 quick-commit-ai --summary
 ```
+
+### Customize:
+
+- Add more flows in `main.sh`
+- Tune prompts in: `main.sh` or `main.sh`
+
+
+
