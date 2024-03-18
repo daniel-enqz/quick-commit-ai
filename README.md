@@ -44,5 +44,5 @@ quick-commit-ai --summary
 - Add more flows in `main.sh`
 - Tune prompts in: `branch_summary_flow.sh` or `commit_flow.sh`
 - Each flow makes it's own request to OpenAI: (Ex. `commit_message_request`)
-- Each flow has its own output for user. (Ex. `commit_outpu`)
+- Each flow has its own output for user. (Ex. `commit_output`)
 
