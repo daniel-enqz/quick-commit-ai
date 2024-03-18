@@ -1,4 +1,3 @@
-# Function to generate a summary based on commit messages
 generate_summary_message() {
   local commit_messages="$1"
   local json_commit_messages=$(jq -aRs . <<< "$commit_messages")
@@ -25,33 +24,40 @@ generate_summary_message() {
   echo $response | jq -r '.choices[0].message.content'
 }
 
-# Function to get commit messages since divergence from the default branch
-get_commit_messages_since_divergence() {
-  local base_branch="$1"
-  git log $base_branch..HEAD --pretty=format:"%s"
+
+
+
+
+
+summary_changes() {
+  local summary_message=$(generate_summary_message "$commit_messages")
+  printf "\033[0;36m$summary_message\n033[0m\n"
+  echo "Press Enter to copy the summary message to the clipboard or Ctrl+C to cancel."
+  read -r
+  echo "$summary_message" | pbcopy
+  echo "Summary message copied to clipboard. ✅"
 }
+
+
+
+
 
 quick_summary_user_flow() {
   local remote=origin
   local default_branch=$(git remote show $remote | grep 'HEAD branch' | cut -d' ' -f5)
+
+
   if [ -z "$default_branch" ]; then
     echo "Default branch not detected, falling back to 'main'."
     default_branch="main"
   fi
-  local commit_messages=$(get_commit_messages_since_divergence "$default_branch")
+
+  local base_branch="$1"
+  local commit_messages=$(git log $base_branch..HEAD --pretty=format:"%s")
   if [ -z "$commit_messages" ]; then
     echo "No new commits to summarize."
     return
   fi
 
-  local summary_message=$(generate_summary_message "$commit_messages")
-  printf "\033[0;36m$summary_message\n033[0m\n"
-
-
-  echo "Press Enter to copy the summary message to the clipboard or Ctrl+C to cancel."
-  read -r
-
-  # Use pbcopy for macOS, xclip or xsel for Linux
-  echo "$summary_message" | pbcopy
-  echo "Summary message copied to clipboard. ✅"
+  summary_changes "$commit_messages"
 }

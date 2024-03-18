@@ -1,4 +1,3 @@
-# Function to generate a commit message based on git diff
 generate_commit_message() {
   local diff_data="$1"
   local json_diff_data=$(jq -aRs . <<< "$diff_data")
@@ -25,7 +24,10 @@ generate_commit_message() {
   echo $response | jq -r '.choices[0].message.content'
 }
 
-# Function to prompt and execute git commit
+
+
+
+
 commit_changes() {
   echo "Ready to commit with the following message:"
   printf "\033[0;36mgit commit -m \"$1\"\033[0m\n"
@@ -33,7 +35,13 @@ commit_changes() {
   read
   git add .
   git commit -m "$1"
+  echo "Changes committed. ✅"
 }
+
+
+
+
+
 
 quick_commit_user_flow() {
   local diff_data=$(git diff)
@@ -43,5 +51,4 @@ quick_commit_user_flow() {
   fi
   local commit_message=$(generate_commit_message "$diff_data")
   commit_changes "$commit_message"
-  echo "Changes committed. ✅"
 }
