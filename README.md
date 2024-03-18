@@ -3,7 +3,10 @@
 > Just one more tool to generate commit messages, but lightweight, easy to use and customizable.
 
 
-https://github.com/daniel-enqz/quick-commit-ai/assets/72522628/a62277a9-8f1b-48d7-9acc-66071af325a2
+
+https://github.com/daniel-enqz/quick-commit-ai/assets/72522628/485965ee-90de-40f4-bf88-46201dbbe0ef
+
+
 
 
 ## Note: Customize everything to your needs.
