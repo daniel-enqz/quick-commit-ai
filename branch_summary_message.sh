@@ -37,14 +37,12 @@ quick_summary_user_flow() {
   local remote=origin
   local default_branch=$(git remote show $remote | grep 'HEAD branch' | cut -d' ' -f5)
 
-
   if [ -z "$default_branch" ]; then
     echo "Default branch not detected, falling back to 'main'."
     default_branch="main"
   fi
 
-  local base_branch="$1"
-  local commit_messages=$(git log $base_branch..HEAD --pretty=format:"%s")
+  local commit_messages=$(git log $default_branch..HEAD --pretty=format:"%s")
   if [ -z "$commit_messages" ]; then
     echo "No new commits to summarize."
     return
