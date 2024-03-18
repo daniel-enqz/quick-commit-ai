@@ -11,7 +11,7 @@ https://github.com/daniel-enqz/quick-commit-ai/assets/72522628/485965ee-90de-40f
 
 ## Note: Customize everything to your needs.
 
-### Installation:
+### ⚡️ Quick Installation:
 
 ```bash
 git clone git@github.com:daniel-enqz/quick-commit-ai.git
