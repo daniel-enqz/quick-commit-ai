@@ -26,7 +26,7 @@ generate_summary_message() {
 
 summary_changes() {
   local summary_message=$(generate_summary_message "$commit_messages")
-  printf "\033[0;36m$summary_message\n033[0m\n"
+  printf "\033[0;36m$summary_message\n\033[0m\n"
   echo "Press Enter to copy the summary message to the clipboard or Ctrl+C to cancel."
   read -r
   echo "$summary_message" | pbcopy
