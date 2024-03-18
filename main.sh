@@ -3,8 +3,8 @@
 SCRIPT_DIR="$(dirname "$0")"
 
 function quick_commit_ai {
-  source "${SCRIPT_DIR}/commit_message.sh"
-  source "${SCRIPT_DIR}/branch_summary_message.sh"
+  source "${SCRIPT_DIR}/commit_flow.sh"
+  source "${SCRIPT_DIR}/branch_summary_flow.sh"
 
   if [[ "$1" == "--commit" ]]; then
     quick_commit_user_flow
