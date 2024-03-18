@@ -1,4 +1,4 @@
-generate_summary_message() {
+summary_message_request() {
   local commit_messages="$1"
   local json_commit_messages=$(jq -aRs . <<< "$commit_messages")
   local data_json=$(jq -cn --arg jsonCommitMessages "$json_commit_messages" '{
@@ -24,8 +24,8 @@ generate_summary_message() {
   echo $response | jq -r '.choices[0].message.content'
 }
 
-summary_changes() {
-  local summary_message=$(generate_summary_message "$commit_messages")
+summary_output() {
+  local summary_message = "$1"
   printf "\033[0;36m$summary_message\n\033[0m\n"
   echo "Press Enter to copy the summary message to the clipboard or Ctrl+C to cancel."
   read -r
@@ -48,5 +48,6 @@ quick_summary_user_flow() {
     return
   fi
 
-  summary_changes "$commit_messages"
+  local summary_message=$(summary_message_request "$commit_messages")
+  summary_output "$summary_message"
 }
