@@ -1,6 +1,10 @@
 # Quick Commit AI
 ---
-> Just one more tool to generate commit messages, but lightweight and easy to use.
+> Just one more tool to generate commit messages, but lightweight, easy to use and customizable.
+
+
+https://github.com/daniel-enqz/quick-commit-ai/assets/72522628/a62277a9-8f1b-48d7-9acc-66071af325a2
+
 
 ## Note: Customize everything to your needs.
 
