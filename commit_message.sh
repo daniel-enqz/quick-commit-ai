@@ -24,10 +24,6 @@ generate_commit_message() {
   echo $response | jq -r '.choices[0].message.content'
 }
 
-
-
-
-
 commit_changes() {
   echo "Ready to commit with the following message:"
   printf "\033[0;36mgit commit -m \"$1\"\033[0m\n"
@@ -37,11 +33,6 @@ commit_changes() {
   git commit -m "$1"
   echo "Changes committed. ✅"
 }
-
-
-
-
-
 
 quick_commit_user_flow() {
   local diff_data=$(git diff)
