@@ -24,11 +24,6 @@ generate_summary_message() {
   echo $response | jq -r '.choices[0].message.content'
 }
 
-
-
-
-
-
 summary_changes() {
   local summary_message=$(generate_summary_message "$commit_messages")
   printf "\033[0;36m$summary_message\n033[0m\n"
@@ -37,10 +32,6 @@ summary_changes() {
   echo "$summary_message" | pbcopy
   echo "Summary message copied to clipboard. ✅"
 }
-
-
-
-
 
 quick_summary_user_flow() {
   local remote=origin
